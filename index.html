@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07111f" />
+  <meta name="description" content="PCGPT — personal command center" />
+  <title>PCGPT</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="topbar">
+    <button class="brand" id="homeBtn" aria-label="Início"><span class="brand-mark">P</span><span>PC<span>GPT</span></span></button>
+    <div class="status"><i></i><span>SISTEMA ONLINE</span><b id="clock">--:--:--</b></div>
+    <button class="icon-btn" id="commandBtn" title="Abrir comandos">⌘</button>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">PERSONAL COMMAND CENTER</p>
+        <h1>O painel é seu.<br><em>Faça acontecer.</em></h1>
+        <p class="sub">Um espaço local para organizar ideias, tempo e ações sem depender de uma conta ou servidor.</p>
+      </div>
+      <div class="hero-orb"><span></span><div class="orb-ring r1"></div><div class="orb-ring r2"></div></div>
+    </section>
+
+    <section class="grid">
+      <article class="card focus-card">
+        <div class="card-head"><div><span class="label">FOCO</span><h2 id="focusTitle">Sessão livre</h2></div><button class="dots" data-menu="focus">•••</button></div>
+        <div class="timer" id="timer">25:00</div>
+        <div class="timer-track"><span id="timerProgress"></span></div>
+        <div class="timer-actions"><button class="primary" id="startTimer">Iniciar</button><button id="resetTimer">Resetar</button><button id="modeTimer">25 / 5</button></div>
+      </article>
+
+      <article class="card quick-card">
+        <div class="card-head"><div><span class="label">AÇÃO RÁPIDA</span><h2>O que você precisa?</h2></div></div>
+        <div class="actions">
+          <button data-action="note"><span>✎</span><b>Nova ideia</b><small>capturar agora</small></button>
+          <button data-action="calc"><span>＋</span><b>Calculadora</b><small>fazer uma conta</small></button>
+          <button data-action="search"><span>⌕</span><b>Pesquisar</b><small>na web</small></button>
+          <button data-action="export"><span>↥</span><b>Exportar</b><small>salvar seus dados</small></button>
+        </div>
+      </article>
+
+      <article class="card notes-card">
+        <div class="card-head"><div><span class="label">MEMÓRIA LOCAL</span><h2>Notas</h2></div><button class="add" id="addNote">+</button></div>
+        <div id="notesList" class="notes-list"></div>
+      </article>
+
+      <article class="card command-card">
+        <div class="card-head"><div><span class="label">CONSOLE</span><h2>Comando</h2></div><kbd>CTRL K</kbd></div>
+        <div class="command-line"><span>›</span><input id="commandInput" autocomplete="off" placeholder="Digite uma ação..." /><button id="runCommand">EXEC</button></div>
+        <div id="commandOutput" class="output">Pronto. Experimente: <b>ajuda</b>, <b>hora</b>, <b>foco</b> ou <b>limpar</b>.</div>
+      </article>
+
+      <article class="card stats-card">
+        <div class="card-head"><div><span class="label">HOJE</span><h2>Ritmo</h2></div><span class="pulse">●</span></div>
+        <div class="stats"><div><strong id="sessionCount">0</strong><span>sessões</span></div><div><strong id="noteCount">0</strong><span>notas</span></div><div><strong id="dayStreak">1</strong><span>dia ativo</span></div></div>
+        <div class="week" id="week"></div>
+      </article>
+
+      <article class="card calc-card">
+        <div class="card-head"><div><span class="label">FERRAMENTA</span><h2>Calculadora</h2></div></div>
+        <input class="calc-display" id="calcDisplay" inputmode="decimal" placeholder="0" aria-label="Calculadora" />
+        <div class="calc-grid">
+          <button data-key="7">7</button><button data-key="8">8</button><button data-key="9">9</button><button data-key="/">÷</button>
+          <button data-key="4">4</button><button data-key="5">5</button><button data-key="6">6</button><button data-key="*">×</button>
+          <button data-key="1">1</button><button data-key="2">2</button><button data-key="3">3</button><button data-key="-">−</button>
+          <button data-key="0">0</button><button data-key=".">.</button><button data-key="C">C</button><button class="equals" data-key="=">=</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <div class="modal" id="modal" aria-hidden="true"><div class="modal-box"><button class="modal-close" id="closeModal">×</button><div id="modalContent"></div></div></div>
+  <div class="toast" id="toast"></div>
+  <footer>PCGPT <span>•</span> dados ficam neste dispositivo <span>•</span> <button id="clearData">apagar dados</button></footer>
+  <script src="app.js"></script>
+</body>
+</html>
