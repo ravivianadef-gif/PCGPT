@@ -1,9 +1,12 @@
 {
-  "name":"PCGPT",
+  "name":"PCGPT — Personal Command Center",
   "short_name":"PCGPT",
   "start_url":"./",
+  "scope":"./",
   "display":"standalone",
   "background_color":"#050a12",
   "theme_color":"#07111f",
-  "description":"Personal command center"
+  "description":"Local-first personal command center for ideas, focus, execution and value tracking.",
+  "categories":["productivity","utilities"],
+  "lang":"pt-BR"
 }
