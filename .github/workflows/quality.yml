@@ -22,6 +22,8 @@ jobs:
           node --check engine.js
           node --check operator.js
           node --check sw.js
+      - name: Run smoke test
+        run: node tests/smoke.mjs
       - name: Validate required app files
         run: |
           set -e
